@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo, bora jogar?!</h1>
+        <p>Escolha suas opções e descubra seu caminho de aprendizado.</p>
+    </div>
+
+    <script>
+        // Função principal que executa o fluxo do jogo
+        function jogoTecnologias() {
+            // Passo 1: Escolha de área
+            let area = prompt("Escolha a área de interesse: (1) Front-End ou (2) Back-End");
+
+            while (area !== "1" && area !== "2") {
+                area = prompt("Escolha a área de interesse: (1) Front-End ou (2) Back-End");
+            }
+
+            // Passo 2: Escolha de tecnologia específica
+            let tecnologia;
+            if (area === "1") {
+                tecnologia = prompt("Você escolheu Front-End. Agora, escolha entre (1) React ou (2) Vue.");
+                while (tecnologia !== "1" && tecnologia !== "2") {
+                    tecnologia = prompt("Escolha uma tecnologia válida: (1) React ou (2) Vue.");
+                }
+            } else {
+                tecnologia = prompt("Você escolheu Back-End. Agora, escolha entre (1) C# ou (2) Java.");
+                while (tecnologia !== "1" && tecnologia !== "2") {
+                    tecnologia = prompt("Escolha uma tecnologia válida: (1) C# ou (2) Java.");
+                }
+            }
+
+            // Passo 3: Escolha entre se especializar ou tornar-se Fullstack
+            let especializacao = prompt("Agora, você quer (1) se especializar na área escolhida ou (2) se tornar Fullstack?");
+
+            while (especializacao !== "1" && especializacao !== "2") {
+                especializacao = prompt("Escolha uma opção válida: (1) se especializar ou (2) tornar-se Fullstack.");
+            }
+
+            // Exibindo a mensagem final de acordo com a escolha
+            if (especializacao === "1") {
+                if (area === "1") {
+                    alert("Você escolheu se especializar em Front-End, com foco em " + (tecnologia === "1" ? "React" : "Vue") + ".");
+                } else {
+                    alert("Você escolheu se especializar em Back-End, com foco em " + (tecnologia === "1" ? "C#" : "Java") + ".");
+                }
+            } else {
+                alert("Você escolheu se tornar Fullstack. Isso significa que você aprenderá tanto o Front-End quanto o Back-End!");
+            }
+
+            // Passo 4: Perguntar sobre outras tecnologias
+            let maisTecnologias = true;
+            while (maisTecnologias) {
+                let tecnologiaAdicional = prompt("Tem mais alguma tecnologia que você gostaria de aprender?");
+                if (tecnologiaAdicional) {
+                    alert("Você escolheu aprender " + tecnologiaAdicional + ".");
+                    comentarSobreTecnologia(tecnologiaAdicional);
+                }
+                maisTecnologias = confirm("Tem mais alguma tecnologia que você gostaria de aprender?");
+            }
+
+            alert("Obrigado por participar do jogo! Boa sorte na sua jornada de aprendizado!");
+        }
+
+        // Função que dá um comentário sobre a tecnologia inserida
+        function comentarSobreTecnologia(tecnologia) {
+            switch (tecnologia.toLowerCase()) {
+                case "react":
+                    alert("React é uma biblioteca JavaScript popular para construção de interfaces de usuário, focada em componentes reutilizáveis.");
+                    break;
+                case "vue":
+                    alert("Vue é um framework progressivo para construção de interfaces de usuário, fácil de integrar em projetos já existentes.");
+                    break;
+                case "c#":
+                    alert("C# é uma linguagem de programação moderna e poderosa, usada principalmente no desenvolvimento de aplicações para a plataforma .NET.");
+                    break;
+                case "java":
+                    alert("Java é uma das linguagens de programação mais populares e amplamente usadas no desenvolvimento de aplicativos empresariais e móveis.");
+                    break;
+                default:
+                    alert("Essa tecnologia não tem um comentário específico no momento, mas continue explorando!");
+                    break;
+            }
+        }
+
+        // Iniciar o jogo
+        jogoTecnologias();
+    </script>
+</body>
+</html>
